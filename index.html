@@ -10,520 +10,108 @@
         :root {
             --primary: #5E72E4;
             --primary-dark: #3A4FAD;
-            --primary-light: #8E9EEB;
-            --accent: #11CDEF;
-            --light: #F8F9FA;
-            --lighter: #FEFEFE;
-            --dark: #2D3748;
-            --dark-light: #4A5568;
-            --success: #2DCE89;
-            --warning: #FB6340;
             --text-xl: 1.6rem;
             --text-lg: 1.3rem;
             --text-md: 1.1rem;
-            --text-sm: 0.9rem;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-            --border-radius-sm: 8px;
-            --border-radius-md: 12px;
-            --border-radius-lg: 16px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
-            font-size: var(--text-md);
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--light);
+            margin: 0;
+            padding: 0;
+            background: #f5f7fa;
             height: 100vh;
             overflow-x: hidden;
-            touch-action: pan-y;
         }
 
         .app-container {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            max-width: 100%;
-            position: relative;
+            height: 100vh;
         }
 
-        /* Encabezado mejorado */
         .header {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--lighter);
-            padding: 1.2rem 1rem;
+            color: white;
+            padding: 1rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
         }
 
         .header h1 {
             font-size: var(--text-xl);
-            font-weight: 600;
-            margin-bottom: 0.4rem;
+            margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
-        .header p {
-            font-size: var(--text-sm);
-            opacity: 0.9;
-            font-weight: 400;
-        }
-
-        /* Contenedor principal */
-        .main-content {
+        .sheet-wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 0 1rem;
-            margin-top: 0.5rem;
+            padding: 0.5rem;
         }
 
-        /* Hoja de cálculo */
         .sheet-container {
-            width: 100%;
             flex: 1;
             border: none;
-            background: var(--lighter);
-            border-radius: var(--border-radius-md);
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-            transform: translate3d(0,0,0);
-            margin-bottom: 1rem;
-            transition: var(--transition);
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .sheet-container:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--primary-light);
-        }
-
-        /* Controles mejorados */
-        .controls {
-            display: flex;
-            gap: 0.8rem;
-            margin: 1rem 0;
-            padding: 0 0.5rem;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 0.9rem;
-            border-radius: var(--border-radius-md);
-            border: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            font-size: var(--text-md);
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: var(--lighter);
-        }
-
-        .btn-primary:hover, .btn-primary:focus {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: var(--lighter);
-            color: var(--primary);
-            border: 1px solid var(--primary-light);
-        }
-
-        .btn-secondary:hover, .btn-secondary:focus {
-            background: var(--primary-light);
-            color: var(--lighter);
-        }
-
-        /* Sección de ayuda mejorada */
-        .help-section {
-            background: var(--lighter);
-            padding: 1.3rem;
-            border-radius: var(--border-radius-md);
-            margin: 0 1rem 1rem;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .help-section:hover {
-            box-shadow: var(--shadow-md);
-        }
-
-        .help-title {
-            font-size: var(--text-md);
-            margin-bottom: 0.8rem;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-        }
-
-        .contact-options {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--primary);
-            font-size: var(--text-sm);
-            transition: var(--transition);
-            min-width: 60px;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .contact-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
-            color: var(--lighter);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .contact-btn:hover .contact-icon {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Efecto de carga mejorado */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.95);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            transition: opacity 0.4s ease, visibility 0.4s;
-        }
-
-        .loading.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .spinner {
-            width: 56px;
-            height: 56px;
-            border: 4px solid rgba(94, 114, 228, 0.2);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 1.2rem;
-        }
-
-        .loading-text {
-            color: var(--dark-light);
-            font-size: var(--text-md);
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Notificación */
-        .notification {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
+        .fullscreen-btn {
+            display: block;
             background: var(--primary);
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
+            padding: 0.8rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        .notification.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(-10px);
-        }
-
-        /* Botón de accesibilidad flotante */
-        .floating-btn {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            z-index: 100;
-            transition: var(--transition);
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .floating-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Adaptación para móviles pequeños */
         @media (max-width: 480px) {
             :root {
                 --text-xl: 1.4rem;
-                --text-lg: 1.2rem;
-                --text-md: 1rem;
-                --text-sm: 0.8rem;
             }
-            
-            .controls {
-                flex-direction: column;
-                gap: 0.6rem;
-            }
-            
-            .contact-options {
-                gap: 0.8rem;
-            }
-            
-            .contact-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .floating-btn {
-                width: 48px;
-                height: 48px;
-                font-size: 1.1rem;
-                bottom: 1rem;
-                right: 1rem;
-            }
-        }
-
-        /* Prevenir zoom no deseado */
-        input, textarea, select {
-            font-size: var(--text-md);
         }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <p class="loading-text">Cargando aplicación...</p>
-    </div>
-
     <div class="app-container">
         <header class="header">
             <h1><i class="fas fa-car"></i> Registro de Kilometraje</h1>
-            <p>Formulario móvil simplificado</p>
         </header>
         
-        <div class="main-content">
+        <div class="sheet-wrapper">
             <iframe class="sheet-container" 
                     id="sheetFrame"
-                    src="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing&rm=minimal&widget=false&chrome=false"
-                    allow="autoplay; fullscreen"></iframe>
+                    src="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing&rm=minimal&single=true&widget=false&headers=false"></iframe>
             
-            <div class="controls">
-                <button class="btn btn-primary" id="btnSave">
-                    <i class="fas fa-save"></i> Guardar
-                </button>
-                <button class="btn btn-secondary" id="btnHelp">
-                    <i class="fas fa-question-circle"></i> Ayuda
-                </button>
-            </div>
-        </div>
-        
-        <div class="help-section" id="helpSection">
-            <h3 class="help-title"><i class="fas fa-life-ring"></i> Soporte Rápido</h3>
-            <div class="contact-options">
-                <a href="tel:+1234567890" class="contact-btn">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    Llamar
-                </a>
-                <a href="https://wa.me/1234567890" class="contact-btn">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    WhatsApp
-                </a>
-                <a href="mailto:soporte@kilometraje.com" class="contact-btn">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    Email
-                </a>
-                <a href="#" class="contact-btn" id="btnTutorial">
-                    <div class="contact-icon">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    Tutorial
-                </a>
-            </div>
+            <a href="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing" 
+               class="fullscreen-btn" 
+               target="_blank">
+                <i class="fas fa-expand"></i> Abrir en pantalla completa para editar
+            </a>
         </div>
     </div>
-
-    <div class="notification" id="notification">
-        Los cambios se guardaron automáticamente
-    </div>
-
-    <button class="floating-btn" id="btnAccessibility">
-        <i class="fas fa-universal-access"></i>
-    </button>
 
     <script>
-        // Esperar a que todo cargue
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elementos del DOM
-            const loading = document.getElementById('loading');
-            const sheetFrame = document.getElementById('sheetFrame');
-            const btnSave = document.getElementById('btnSave');
-            const btnHelp = document.getElementById('btnHelp');
-            const btnAccessibility = document.getElementById('btnAccessibility');
-            const btnTutorial = document.getElementById('btnTutorial');
-            const notification = document.getElementById('notification');
-            
-            // Ocultar carga cuando el iframe esté listo
-            sheetFrame.addEventListener('load', function() {
-                setTimeout(function() {
-                    loading.classList.add('hidden');
-                }, 500);
-            });
-            
-            // Ajustar altura del iframe dinámicamente
-            function adjustSheetHeight() {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const helpHeight = document.getElementById('helpSection').offsetHeight;
-                const controlsHeight = document.querySelector('.controls').offsetHeight;
-                const padding = 30;
-                
-                const frameHeight = window.innerHeight - headerHeight - helpHeight - controlsHeight - padding;
-                sheetFrame.style.height = Math.max(frameHeight, 300) + 'px';
-            }
-            
-            // Ajustar al cargar y al cambiar tamaño
-            window.addEventListener('load', adjustSheetHeight);
-            window.addEventListener('resize', adjustSheetHeight);
-            
-            // Mostrar notificación
-            function showNotification(message) {
-                notification.textContent = message;
-                notification.classList.add('show');
-                
-                setTimeout(function() {
-                    notification.classList.remove('show');
-                }, 3000);
-            }
-            
-            // Simular guardado
-            btnSave.addEventListener('click', function() {
-                showNotification('Los datos se han guardado automáticamente');
-            });
-            
-            // Scroll a ayuda
-            btnHelp.addEventListener('click', function() {
-                document.getElementById('helpSection').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Botón de accesibilidad
-            btnAccessibility.addEventListener('click', function() {
-                document.body.style.fontSize = '20px';
-                showNotification('Texto agrandado para mejor lectura');
-            });
-            
-            // Tutorial
-            btnTutorial.addEventListener('click', function(e) {
-                e.preventDefault();
-                showNotification('Tutorial: Complete los campos y los datos se guardarán solos');
-            });
-            
-            // Prevenir desplazamiento accidental del body
-            let startY;
-            
-            sheetFrame.addEventListener('touchstart', function(e) {
-                startY = e.touches[0].clientY;
-            }, { passive: true });
-            
-            sheetFrame.addEventListener('touchmove', function(e) {
-                const y = e.touches[0].clientY;
-                const scrollTop = sheetFrame.contentWindow.document.documentElement.scrollTop;
-                const scrollHeight = sheetFrame.contentWindow.document.documentElement.scrollHeight;
-                const offsetHeight = sheetFrame.contentWindow.document.documentElement.offsetHeight;
-                
-                // Permitir scroll solo si no está en los límites
-                if (!(scrollTop === 0 && y > startY) && 
-                    !(scrollTop + offsetHeight >= scrollHeight && y < startY)) {
-                    e.stopPropagation();
-                }
-            }, { passive: false });
-            
-            // Simular autoguardado cada 30 segundos
-            setInterval(function() {
-                showNotification('Autoguardado realizado');
-            }, 30000);
-        });
+        // Ajustar altura del iframe
+        function adjustFrame() {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const frame = document.getElementById('sheetFrame');
+            frame.style.height = (window.innerHeight - headerHeight - 70) + 'px';
+        }
+        
+        window.addEventListener('resize', adjustFrame);
+        adjustFrame();
     </script>
 </body>
 </html>
