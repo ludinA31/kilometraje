@@ -2,116 +2,57 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Registro de Kilometraje | Versión Móvil Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Kilometraje</title>
     <style>
-        :root {
-            --primary: #5E72E4;
-            --primary-dark: #3A4FAD;
-            --text-xl: 1.6rem;
-            --text-lg: 1.3rem;
-            --text-md: 1.1rem;
-        }
-        
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f7fa;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .app-container {
+            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header h1 {
-            font-size: var(--text-xl);
-            margin: 0;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .sheet-wrapper {
-            flex: 1;
-            display: flex;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f7fa;
             flex-direction: column;
-            padding: 0.5rem;
-        }
-
-        .sheet-container {
-            flex: 1;
-            border: none;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .fullscreen-btn {
-            display: block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem;
-            margin: 0.5rem;
-            border-radius: 8px;
+            padding: 20px;
             text-align: center;
-            text-decoration: none;
-            font-weight: 500;
         }
-
-        @media (max-width: 480px) {
-            :root {
-                --text-xl: 1.4rem;
-            }
+        .container {
+            max-width: 100%;
+        }
+        .btn {
+            background: #5E72E4;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .loading {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <header class="header">
-            <h1><i class="fas fa-car"></i> Registro de Kilometraje</h1>
-        </header>
+    <div class="container">
+        <h2>Registro de Kilometraje</h2>
+        <p>Serás redirigido automáticamente al formulario editable</p>
         
-        <div class="sheet-wrapper">
-            <iframe class="sheet-container" 
-                    id="sheetFrame"
-                    src="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing&rm=minimal&single=true&widget=false&headers=false"></iframe>
-            
-            <a href="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing" 
-               class="fullscreen-btn" 
-               target="_blank">
-                <i class="fas fa-expand"></i> Abrir en pantalla completa para editar
+        <div class="loading">
+            <p>Si no se redirige, haz clic en el botón:</p>
+            <a href="https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing" class="btn">
+                Abrir Formulario
             </a>
         </div>
     </div>
 
     <script>
-        // Ajustar altura del iframe
-        function adjustFrame() {
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const frame = document.getElementById('sheetFrame');
-            frame.style.height = (window.innerHeight - headerHeight - 70) + 'px';
-        }
-        
-        window.addEventListener('resize', adjustFrame);
-        adjustFrame();
+        // Redirección automática después de 2 segundos
+        setTimeout(function() {
+            window.location.href = "https://docs.google.com/spreadsheets/d/12LphC6wjkgcrt0cx6HErHQi6GsUdS-fpWrU9GJU4GXA/edit?usp=sharing";
+        }, 2000);
     </script>
 </body>
 </html>
